@@ -219,14 +219,14 @@ const CTA = () => {
       </CTATextContent>
       <ProfilePic
         src='/assets/profile-sm.png'
-        srcSet='/assets/profile-sm.png 300w,
-        /assets/profile.png 1280w'
+        srcSet='/assets/profile-sm.png 1280w,
+        /assets/profile.png 1600w'
         className={inView ? (!init ? 'animate' : 'show') : init ? 'hide' : ''}
       />
       <LoadingProfilePic
         src='assets/loading-profile-sm.png'
-        srcSet='assets/loading-profile-sm.png 300w,
-             assets/loading-profile.png 1280w'
+        srcSet='assets/loading-profile-sm.png 1280w,
+             assets/loading-profile.png 1600w'
         className={inView && !init ? 'show' : ''}
       />
     </Container>

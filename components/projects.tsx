@@ -21,26 +21,48 @@ const CTALink = styled(StyledLink)`
   font-size: 24px;
   position: relative;
 
+  ${Breakpoints.minMedia.desktop} {
+    font-size: 28px !important;
+  }
+`
+
+const BouncingHeart = styled.div`
+  background-color: white;
+  display: inline-block;
+  height: 20px;
+  position: relative;
+  top: -20px;
+  right: -6px;
+  width: 20px;
+  animation: bounce 2s infinite alternate-reverse;
+
+  @keyframes bounce {
+    from {
+      transform: translate(-5px, 5px);
+    }
+    to {
+      transform: translate(10, -10px);
+    }
+  }
+
+  &:before,
   &:after {
     content: '';
-    position: absolute;
-    top: -20px;
-    right: -30px;
+    background-color: white;
+    border-radius: 50%;
     height: 20px;
+    position: absolute;
     width: 20px;
-    border: 5px solid white;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    animation: bounce 2s infinite alternate-reverse;
+  }
 
-    @keyframes bounce {
-      from {
-        transform: translate(-5px, 5px);
-      }
-      to {
-        transform: translate(10, -10px);
-      }
-    }
+  &:before {
+    top: -10px;
+    left: 0px;
+  }
+
+  &:after {
+    left: 10px;
+    top: 0;
   }
 `
 
@@ -96,7 +118,11 @@ const Projects = () => {
       ))}
       <ProjectsFooter>
         <StyledTitle noMargin level={3}>
-          More projects on my <CTALink href='https://chunky.dev/'>blog</CTALink>
+          More projects on my{' '}
+          <CTALink href='https://chunky.dev/'>
+            blog
+            <BouncingHeart />
+          </CTALink>
         </StyledTitle>
       </ProjectsFooter>
     </Container>
