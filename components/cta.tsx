@@ -73,10 +73,9 @@ const ProfilePic = styled.img`
 
 const LoadingProfilePic = styled.img`
   position: absolute;
-  bottom: 0;
+  bottom: -500px;
   right: -50px;
   max-height: 90vh;
-  transform: translateY(500px);
   opacity: 0;
   width: 100%;
   height: auto;
@@ -100,13 +99,12 @@ const LoadingProfilePic = styled.img`
       opacity: 1;
     }
     99% {
-      transform: translateY(0);
+      bottom: 0;
       opacity: 1;
     }
 
     100% {
       opacity: 0;
-      transform: translateY(0);
     }
   }
 `

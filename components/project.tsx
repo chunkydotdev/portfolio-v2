@@ -19,8 +19,8 @@ const Content = styled.div`
   max-width: ${Breakpoints.size.largeDesktop};
 `
 
-const ProjectImage = styled.div<{ src: string }>`
-  background-image: url(${({ src }) => src});
+const ProjectImage = styled.div<{ sm: string; lg: string }>`
+  background-image: url(${({ sm }) => sm});
   background-size: cover;
   background-repeat: no-repeat;
   width: 300px;
@@ -46,6 +46,7 @@ const ProjectImage = styled.div<{ src: string }>`
   ${Breakpoints.minMedia.desktop} {
     width: 600px;
     height: 400px;
+    background-image: url(${({ lg }) => lg});
   }
 `
 
@@ -110,7 +111,7 @@ const AnimatedTitle = styled(StyledTitle)`
 `
 
 type Props = {
-  image: string
+  image: { sm: string; lg: string }
   title: string
   description: string
   stack: string[]
@@ -143,7 +144,11 @@ const Project = ({ image, title, description, stack, url, github }: Props) => {
           )}
         </Links>
         <Spacer />
-        <ProjectImage className={inView ? 'show' : ''} src={image} />
+        <ProjectImage
+          className={inView ? 'show' : ''}
+          sm={image.sm}
+          lg={image.lg}
+        />
         <Description className={inView ? 'show' : ''}>
           {description}
         </Description>

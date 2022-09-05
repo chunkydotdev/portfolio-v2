@@ -58,7 +58,7 @@ const Projects = () => {
       title: 'Heaven.cat',
       description:
         'I built this web application for a blockchain-game called Cryptokitties where you collect and breed kitties. The main purpose of the web application is to help the user find specific cats. The system was built with Elasticsearch, serving as the database for both userdata and cryptocatdata. The cryptocatdata was scraped from the ethereum blockchain using python-scripts. A REST-API built in Dotnet Core v2.1 was built on top of the DB which serves clean and simple models to the frontend, using JSON. The frontend was built with Vue, including typescript, html and scss. ',
-      image: '/assets/heavencat.png',
+      image: { sm: '/assets/heavencat-sm.png', lg: '/assets/heavencat.png' },
       stack: ['vue', 'scss'],
       url: 'https://heaven.cat'
     },
@@ -66,7 +66,7 @@ const Projects = () => {
       title: 'Papero',
       description:
         'A web application me and a friend built to allow users build their PDFs in a webformat and through our service convert those to PDF.',
-      image: '/assets/papero.png',
+      image: { sm: '/assets/papero-sm.png', lg: '/assets/papero.png' },
       stack: ['react', 'nextjs', 'styled-components'],
       url: 'https://papero.io'
     },
@@ -74,7 +74,10 @@ const Projects = () => {
       title: 'Nounishfish',
       description:
         'A hobby web application I built for a friend who sold NFTs, they just wanted something simple but I kind of let my creation free on this one. A lot of blinking objects and animations, which was super fun to design and build.',
-      image: '/assets/nounishfish.png',
+      image: {
+        sm: '/assets/nounishfish-sm.png',
+        lg: '/assets/nounishfish.png'
+      },
       stack: ['react', 'nextjs', 'styled-components', 'web3'],
       url: 'https://nounishfish.com',
       github: 'https://github.com/Storken/nounishfish'
@@ -82,7 +85,7 @@ const Projects = () => {
   ]
 
   return (
-    <Container id="projects">
+    <Container id='projects'>
       <Spacer size={Spacings.xxl} />
       <StyledTitle level={1}>Highlighted projects</StyledTitle>
       {projects.map(props => (
