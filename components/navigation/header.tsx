@@ -7,8 +7,7 @@ import React from 'react'
 import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons'
 import { socialMedia } from '../../utils/social-media'
 import { introTime } from '../cta'
-import SideMenu from './side-menu';
-import { Colors } from '../../styles/colors';
+import SideMenu from './side-menu'
 
 const Container = styled.div`
   height: 80px;
@@ -89,7 +88,9 @@ export const Header = () => {
     <Container>
       <Content>
         <Link href='#up-top' passHref>
-          <Logo src='/logo.svg' />
+          <a>
+            <Logo src='/logo.svg' />
+          </a>
         </Link>
         <CenterContainer>
           {pages.map(({ name, url }) => (

@@ -82,7 +82,7 @@ const Projects = () => {
   ]
 
   return (
-    <Container>
+    <Container id="projects">
       <Spacer size={Spacings.xxl} />
       <StyledTitle level={1}>Highlighted projects</StyledTitle>
       {projects.map(props => (
