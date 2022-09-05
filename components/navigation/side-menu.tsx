@@ -140,8 +140,8 @@ const SideMenu = () => {
   const routes = [
     { name: 'Up Top', route: '#up-top' },
     { name: 'Projects', route: '#projects' },
-    { name: 'About', route: '#about' },
-    { name: 'Contact Me', route: '#contact' }
+    { name: 'Blog', route: 'https://chunky.dev' },
+    { name: 'Contact', route: '#contact' }
   ]
 
   return (
