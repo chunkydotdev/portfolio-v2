@@ -58,8 +58,7 @@ export const TooltipContainer = styled.div`
   }
 `
 
-const getPadding = (direction: string, size: string, mobile?: boolean) => {
-  if (!mobile) return ''
+const getPadding = (direction: string, size: string) => {
   return direction === 'vertical'
     ? `padding-bottom: ${size}`
     : `padding-right: ${size}`
@@ -68,25 +67,18 @@ const getPadding = (direction: string, size: string, mobile?: boolean) => {
 const SpacerDiv = styled.div<{
   direction: 'vertical' | 'horizontal'
   size: string
-  mobile?: boolean
 }>`
-  ${({ direction, size, mobile }) => getPadding(direction, size, mobile)}
-
-  ${Breakpoints.minMedia.tablet} {
-    ${({ direction, size }) => getPadding(direction, size, true)}
-  }
+  ${({ direction, size }) => getPadding(direction, size)}
 `
 
 export const Spacer = ({
-  mobile = true,
   size = Spacings.md,
   direction = 'vertical'
 }: {
-  mobile?: boolean
   size?: string
   direction?: 'vertical' | 'horizontal'
 }) => {
-  return <SpacerDiv direction={direction} size={size} mobile={mobile} />
+  return <SpacerDiv direction={direction} size={size} />
 }
 
 export enum Theme {

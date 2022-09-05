@@ -11,22 +11,11 @@ import { useInView } from 'react-intersection-observer'
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  background-image: url('/assets/pattern.svg');
+  flex-direction: column;
   width: 100%;
-  margin-top: ${Spacings.xl};
   position: relative;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 30px;
-    background: linear-gradient(${Colors.background}, transparent);
-  }
+  padding-bottom: ${Spacings.xl};
 `
 
 const StyledButton = styled(Button)`
@@ -100,7 +89,7 @@ const Contact = () => {
       <StyledTitle id='contact' level={1}>
         Lets jam!
       </StyledTitle>
-      <Spacer size={Spacings.xxl} />
+      <Spacer size={Spacings.xl} />
       <FormContainer>
         {!submitted ? (
           <StyledForm onFinish={handleSubmit}>
@@ -125,6 +114,7 @@ const Contact = () => {
           </StyledParagraph>
         )}
       </FormContainer>
+      <Spacer size={Spacings.xxl} />
       <SocialMedia ref={ref}>
         <AnimatedSocialMedia
           className={inView ? 'show' : ''}
@@ -145,8 +135,8 @@ const Contact = () => {
           <IconBrandGithub size='48px' />
         </AnimatedSocialMedia>
       </SocialMedia>
-      <Spacer size={Spacings.xxl} />
-      <StyledTitle level={5}>
+      <Spacer size={Spacings.md} />
+      <StyledTitle style={{marginBottom: Spacings.xxl}} level={5}>
         This website is open sourced on{' '}
         <StyledLink
           href='https://github.com/Storken/portfolio-v2'
@@ -156,9 +146,9 @@ const Contact = () => {
           Github
         </StyledLink>
       </StyledTitle>
-      <Spacer size={Spacings.xxl} />
+      <Spacer size={Spacings.md} />
       <StyledLink href='#up-top'>To the top</StyledLink>
-      <Spacer size={Spacings.xxl} />
+      <Spacer size={Spacings.xl} />
     </Container>
   )
 }

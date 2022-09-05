@@ -184,7 +184,7 @@ const Hand = styled.img`
 `
 
 const CTA = () => {
-  const { inView, ref } = useInView({ threshold: 0.95 })
+  const { inView, ref } = useInView({ threshold: 0.8 })
   const [init, setInit] = useState(false)
 
   useEffect(() => {

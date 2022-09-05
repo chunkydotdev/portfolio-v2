@@ -10,7 +10,6 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: ${Spacings.xxl};
 `
 
 const Content = styled.div`

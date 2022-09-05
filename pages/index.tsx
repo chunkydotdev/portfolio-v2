@@ -39,9 +39,9 @@ const Home: NextPage = () => {
         <Spacer size={Spacings.xxl} />
         <PreviousPartners />
         <Projects />
+        <DuckWalk />
+        <Contact />
       </Background>
-      <DuckWalk />
-      <Contact />
     </Container>
   )
 }

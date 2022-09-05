@@ -85,7 +85,6 @@ const Projects = () => {
     <Container>
       <Spacer size={Spacings.xxl} />
       <StyledTitle level={1}>Highlighted projects</StyledTitle>
-      <Spacer size={Spacings.xxl} />
       {projects.map(props => (
         <React.Fragment key={props.title}>
           <Spacer size={Spacings.xxl} />
