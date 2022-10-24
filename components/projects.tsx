@@ -93,9 +93,28 @@ const Projects = () => {
       url: 'https://papero.io'
     },
     {
+      title: 'Linkbun',
+      description:
+        'A place to store collections (buns) of links so that you can share them with eachother',
+      image: {
+        sm: '/assets/linkbun-sm.png',
+        lg: '/assets/linkbun.png'
+      },
+      stack: [
+        'react',
+        'nextjs',
+        'styled-components',
+        'expressjs',
+        'nodejs',
+        'vercel',
+        'nginx'
+      ],
+      url: 'https://linkbun.io'
+    },
+    {
       title: 'Nounishfish',
       description:
-        'A hobby web application I built for a friend who sold NFTs, they just wanted something simple but I kind of let my creation free on this one. A lot of blinking objects and animations, which was super fun to design and build.',
+        'A hobby web application I built for a friend who sold NFTs, they just wanted something simple but I kind of let my creativity free on this one. A lot of blinking objects and animations, which was super fun to design and build.',
       image: {
         sm: '/assets/nounishfish-sm.png',
         lg: '/assets/nounishfish.png'

@@ -6,7 +6,6 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next build && next export",
-    "upload-files": "rsync -av -e ssh ./out/* dev@157.245.82.105:/var/www/dank.tools/html",
     "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {

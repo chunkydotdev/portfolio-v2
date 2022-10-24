@@ -37,6 +37,7 @@ function MyApp ({ Component, pageProps }: AppProps) {
         <noscript>
           <link rel='stylesheet' href='/fonts.css' />
         </noscript>
+        <title>Magnus JJ</title>
       </Head>
       <GlobalStyle />
       <Navigation />
