@@ -106,7 +106,6 @@ const Projects = () => {
         'styled-components',
         'expressjs',
         'nodejs',
-        'vercel',
         'nginx'
       ],
       url: 'https://linkbun.io'
