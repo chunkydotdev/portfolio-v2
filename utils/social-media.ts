@@ -6,5 +6,9 @@ export const socialMedia = {
   github: {
     link: 'https://github.com/Storken',
     icon: '/assets/github.svg'
+  },
+  twitter: {
+    link: 'https://twitter.com/devjunghard/',
+    icon: ''
   }
 }

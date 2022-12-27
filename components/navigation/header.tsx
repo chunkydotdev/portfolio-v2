@@ -4,7 +4,11 @@ import { Spacings } from '../../styles/spacings'
 import Link from 'next/link'
 import { Spacer, StyledLink } from '../shared'
 import React from 'react'
-import { IconBrandGithub, IconBrandLinkedin } from '@tabler/icons'
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandTwitter
+} from '@tabler/icons'
 import { socialMedia } from '../../utils/social-media'
 import { introTime } from '../cta'
 import SideMenu from './side-menu'
@@ -23,7 +27,7 @@ const Logo = styled.img`
   margin-left: ${Spacings.lg};
   ${Breakpoints.minMedia.tablet} {
     margin-left: 0;
-    margin-right: 37px;
+    margin-right: 101px;
   }
 `
 
@@ -103,6 +107,14 @@ export const Header = () => {
           ))}
         </CenterContainer>
         <SocialMedia>
+          <a
+            href={socialMedia.twitter.link}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <IconBrandTwitter size='48px' />
+          </a>
+          <Spacer direction='horizontal' />
           <a
             href={socialMedia.linkedin.link}
             target='_blank'

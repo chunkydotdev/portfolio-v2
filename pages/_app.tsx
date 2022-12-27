@@ -12,10 +12,10 @@ function MyApp ({ Component, pageProps }: AppProps) {
       <Script
         defer
         data-domain='junghard.com'
-        src='https://plausible.io/js/plausible.js'
+        src='https://plausible.chunky.dev/js/plausible.js'
       ></Script>
       <Head>
-      <link rel="shortcut icon" href="logo.png" />
+        <link rel='shortcut icon' href='logo.png' />
         <link
           rel='preconnect'
           href='https://junghard.com'
