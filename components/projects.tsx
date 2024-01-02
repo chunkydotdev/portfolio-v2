@@ -1,11 +1,10 @@
-import React, { createRef, useEffect, useState } from 'react'
-import { useInView } from 'react-intersection-observer'
-import styled from 'styled-components'
-import { Breakpoints } from '../styles/breakpoints'
-import { Colors } from '../styles/colors'
-import { Spacings } from '../styles/spacings'
-import Project from './project'
-import { Spacer, StyledLink, StyledTitle } from './shared'
+import React from "react";
+import styled from "styled-components";
+import { Breakpoints } from "../styles/breakpoints";
+import { Colors } from "../styles/colors";
+import { Spacings } from "../styles/spacings";
+import Project from "./project";
+import { Spacer, StyledLink, StyledTitle } from "./shared";
 
 const Container = styled.div`
   display: flex;
@@ -14,7 +13,7 @@ const Container = styled.div`
   width: 100%;
   position: relative;
   padding-bottom: ${Spacings.xl};
-`
+`;
 
 const CTALink = styled(StyledLink)`
   text-decoration: underline !important;
@@ -24,7 +23,7 @@ const CTALink = styled(StyledLink)`
   ${Breakpoints.minMedia.desktop} {
     font-size: 28px !important;
   }
-`
+`;
 
 const BouncingHeart = styled.div`
   background-color: white;
@@ -47,7 +46,7 @@ const BouncingHeart = styled.div`
 
   &:before,
   &:after {
-    content: '';
+    content: "";
     background-color: white;
     border-radius: 50%;
     height: 20px;
@@ -64,7 +63,7 @@ const BouncingHeart = styled.div`
     left: 10px;
     top: 0;
   }
-`
+`;
 
 const ProjectsFooter = styled.div`
   width: 100%;
@@ -72,63 +71,60 @@ const ProjectsFooter = styled.div`
   padding-top: ${Spacings.lg};
   padding-bottom: ${Spacings.md};
   margin-top: ${Spacings.xxl};
-`
+`;
 
 const Projects = () => {
   const projects = [
     {
-      title: 'Heaven.cat',
+      title: "Linkbun",
       description:
-        'I built this web application for a blockchain-game called Cryptokitties where you collect and breed kitties. The main purpose of the web application is to help the user find specific cats. The system was built with Elasticsearch, serving as the database for both userdata and cryptocatdata. The cryptocatdata was scraped from the ethereum blockchain using python-scripts. A REST-API built in Dotnet Core v2.1 was built on top of the DB which serves clean and simple models to the frontend, using JSON. The frontend was built with Vue, including typescript, html and scss. ',
-      image: { sm: '/assets/heavencat-sm.png', lg: '/assets/heavencat.png' },
-      stack: ['vue', 'scss'],
-      url: 'https://heaven.cat'
-    },
-    {
-      title: 'Papero',
-      description:
-        'A web application me and a friend built to allow users build their PDFs in a webformat and through our service convert those to PDF.',
-      image: { sm: '/assets/papero-sm.png', lg: '/assets/papero.png' },
-      stack: ['react', 'nextjs', 'styled-components'],
-      url: 'https://papero.io'
-    },
-    {
-      title: 'Linkbun',
-      description:
-        'A place to store collections (buns) of links so that you can share them with eachother',
+        "A place to store collections (buns) of links so that you can share them with eachother",
       image: {
-        sm: '/assets/linkbun-sm.png',
-        lg: '/assets/linkbun.png'
+        sm: "/assets/linkbun-sm.png",
+        lg: "/assets/linkbun.png",
       },
-      stack: [
-        'react',
-        'nextjs',
-        'styled-components',
-        'expressjs',
-        'nodejs',
-        'nginx'
-      ],
-      url: 'https://linkbun.io'
+      stack: ["react", "nextjs", "tailwind-css", "firebase"],
+      url: "https://linkbun.io",
     },
     {
-      title: 'Nounishfish',
+      title: "Här var det släckt",
       description:
-        'A hobby web application I built for a friend who sold NFTs, they just wanted something simple but I kind of let my creativity free on this one. A lot of blinking objects and animations, which was super fun to design and build.',
+        "A tool to help people in sweden report broken street lights.",
       image: {
-        sm: '/assets/nounishfish-sm.png',
-        lg: '/assets/nounishfish.png'
+        sm: "/assets/hvds-sm.png",
+        lg: "/assets/hvds.png",
       },
-      stack: ['react', 'nextjs', 'styled-components', 'web3'],
-      url: 'https://nounishfish.com',
-      github: 'https://github.com/Storken/nounishfish'
-    }
-  ]
+      stack: ["react", "nextjs", "tailwind-css", "firebase"],
+      url: "https://härvardetsläckt.se",
+    },
+    {
+      title: "Gradiento",
+      description: "A tool to place your images in a gradient canvas",
+      image: {
+        sm: "/assets/gradiento-sm.png",
+        lg: "/assets/gradiento.png",
+      },
+      stack: ["react", "nextjs", "styled-components"],
+      url: "https://gradien.to",
+    },
+    {
+      title: "Dank.Tools",
+      description:
+        "A tool to help you create a time-tag for discord which gives the same time in different timezones.",
+      image: {
+        sm: "/assets/danktools-sm.png",
+        lg: "/assets/danktools.png",
+      },
+      stack: ["react", "nextjs", "styled-components"],
+      url: "https://dank.tools",
+    },
+  ];
 
   return (
-    <Container id='projects'>
+    <Container id="projects">
       <Spacer size={Spacings.xxl} />
       <StyledTitle level={1}>Highlighted projects</StyledTitle>
-      {projects.map(props => (
+      {projects.map((props) => (
         <React.Fragment key={props.title}>
           <Spacer size={Spacings.xxl} />
           <Project key={props.title} {...props} />
@@ -136,15 +132,19 @@ const Projects = () => {
       ))}
       <ProjectsFooter>
         <StyledTitle noMargin level={3}>
-          More projects on my{' '}
-          <CTALink href='https://chunky.dev/'>
+          You are special
+          <BouncingHeart />
+          {/*
+          More projects on my{" "}
+          <CTALink href="https://chunky.dev/">
             blog
             <BouncingHeart />
           </CTALink>
+           */}
         </StyledTitle>
       </ProjectsFooter>
     </Container>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
