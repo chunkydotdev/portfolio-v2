@@ -37,10 +37,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <noscript>
           <link rel="stylesheet" href="/fonts.css" />
         </noscript>
-        <meta
-          name="facebook-domain-verification"
-          content="587v6nplhjxvoann6bgud9sre8gbgs"
-        />
         <title>Magnus JJ</title>
       </Head>
       <GlobalStyle />
