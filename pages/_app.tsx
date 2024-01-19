@@ -1,25 +1,25 @@
-import { AppProps } from 'next/app'
-import Head from 'next/head'
-import Script from 'next/script'
-import { GlobalStyle } from '../styles/global-styles'
-import 'antd/dist/antd.css'
-import Navigation from '../components/navigation/navigation'
-import { InView } from 'react-intersection-observer'
+import "antd/dist/antd.css";
+import { AppProps } from "next/app";
+import Head from "next/head";
+import Script from "next/script";
+import { InView } from "react-intersection-observer";
+import Navigation from "../components/navigation/navigation";
+import { GlobalStyle } from "../styles/global-styles";
 
-function MyApp ({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script
         defer
-        data-domain='junghard.com'
-        src='https://plausible.chunky.dev/js/plausible.js'
+        data-domain="junghard.com"
+        src="https://plausible.chunky.dev/js/plausible.js"
       ></Script>
       <Head>
-        <link rel='shortcut icon' href='logo.png' />
+        <link rel="shortcut icon" href="logo.png" />
         <link
-          rel='preconnect'
-          href='https://junghard.com'
-          crossOrigin='anonymous'
+          rel="preconnect"
+          href="https://junghard.com"
+          crossOrigin="anonymous"
         />
         <style
           dangerouslySetInnerHTML={{
@@ -31,12 +31,16 @@ function MyApp ({ Component, pageProps }: AppProps) {
                 as='style'
                 onload="this.rel='stylesheet'"
               ></link>
-            <style>`
+            <style>`,
           }}
         ></style>
         <noscript>
-          <link rel='stylesheet' href='/fonts.css' />
+          <link rel="stylesheet" href="/fonts.css" />
         </noscript>
+        <meta
+          name="facebook-domain-verification"
+          content="587v6nplhjxvoann6bgud9sre8gbgs"
+        />
         <title>Magnus JJ</title>
       </Head>
       <GlobalStyle />
@@ -47,7 +51,7 @@ function MyApp ({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </InView>
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
