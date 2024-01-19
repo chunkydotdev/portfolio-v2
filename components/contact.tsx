@@ -177,6 +177,8 @@ const Contact = () => {
       </StyledTitle>
       <Spacer size={Spacings.md} />
       <StyledLink href="#up-top">To the top</StyledLink>
+      <Spacer size={Spacings.md} />
+      <StyledTitle level={5}>©️ 2024 Junghard Software AB</StyledTitle>
       <Spacer size={Spacings.xl} />
     </Container>
   );
