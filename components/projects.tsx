@@ -132,7 +132,7 @@ const Projects = () => {
       ))}
       <ProjectsFooter>
         <StyledTitle noMargin level={3}>
-          You are special
+          You are special!
           <BouncingHeart />
           {/*
           More projects on my{" "}

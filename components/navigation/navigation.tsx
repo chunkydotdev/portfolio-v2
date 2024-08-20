@@ -1,12 +1,7 @@
-import { Header } from './header'
-import SideMenu from './side-menu'
+import { Header } from "./header";
 
 const Navigation = () => {
-  return (
-    <>
-      <Header />
-    </>
-  )
-}
+  return <Header />;
+};
 
-export default Navigation
+export default Navigation;

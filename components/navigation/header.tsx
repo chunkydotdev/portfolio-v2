@@ -1,17 +1,18 @@
-import styled from 'styled-components'
-import { Breakpoints } from '../../styles/breakpoints'
-import { Spacings } from '../../styles/spacings'
-import Link from 'next/link'
-import { Spacer, StyledLink } from '../shared'
-import React from 'react'
 import {
   IconBrandGithub,
   IconBrandLinkedin,
-  IconBrandTwitter
-} from '@tabler/icons'
-import { socialMedia } from '../../utils/social-media'
-import { introTime } from '../cta'
-import SideMenu from './side-menu'
+  IconBrandTwitter,
+  IconBrandYoutube,
+} from "@tabler/icons";
+import Link from "next/link";
+import React from "react";
+import styled from "styled-components";
+import { Breakpoints } from "../../styles/breakpoints";
+import { Spacings } from "../../styles/spacings";
+import { socialMedia } from "../../utils/social-media";
+import { introTime } from "../cta";
+import { Spacer, StyledLink } from "../shared";
+import SideMenu from "./side-menu";
 
 const Container = styled.div`
   height: 80px;
@@ -21,7 +22,7 @@ const Container = styled.div`
   position: fixed;
   z-index: 5;
   background: linear-gradient(#00000040, transparent);
-`
+`;
 
 const Logo = styled.img`
   margin-left: ${Spacings.lg};
@@ -29,7 +30,7 @@ const Logo = styled.img`
     margin-left: 0;
     margin-right: 101px;
   }
-`
+`;
 
 const Content = styled.div`
   display: flex;
@@ -47,7 +48,7 @@ const Content = styled.div`
     max-width: ${Breakpoints.size.desktop};
     padding: 0 ${Spacings.lg};
   }
-`
+`;
 
 const CenterContainer = styled.div`
   display: none;
@@ -68,71 +69,79 @@ const CenterContainer = styled.div`
       transform: translateY(0);
     }
   }
-`
+`;
 
 const SocialMedia = styled.div`
   display: flex;
   flex-wrap: nowrap;
-`
+`;
 
 const Filler = styled.div`
   ${Breakpoints.minMedia.tablet} {
     display: none;
   }
-`
+`;
 
 export const Header = () => {
   const pages = [
-    { name: 'Up top', url: '#up-top' },
-    { name: 'Projects', url: '#projects' },
-    { name: 'Blog', url: 'https://chunky.dev/' },
-    { name: 'Contact', url: '#contact' }
-  ]
+    { name: "Up top", url: "#up-top" },
+    { name: "Projects", url: "#projects" },
+    { name: "Blog", url: "https://chunky.dev/" },
+    { name: "Contact", url: "#contact" },
+  ];
   return (
     <Container>
       <Content>
-        <Link href='#up-top' passHref>
+        <Link href="#up-top" passHref>
           <a>
-            <Logo src='/logo.svg' />
+            <Logo src="/logo.svg" />
           </a>
         </Link>
         <CenterContainer>
           {pages.map(({ name, url }) => (
-            <React.Fragment key={'route-' + name}>
+            <React.Fragment key={"route-" + name}>
               <Link href={url} passHref>
                 <StyledLink skipUnderline>{name}</StyledLink>
               </Link>
-              <Spacer direction='horizontal' />
+              <Spacer direction="horizontal" />
             </React.Fragment>
           ))}
         </CenterContainer>
         <SocialMedia>
           <a
             href={socialMedia.twitter.link}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <IconBrandTwitter size='48px' />
+            <IconBrandTwitter size="48px" />
           </a>
-          <Spacer direction='horizontal' />
+          <Spacer direction="horizontal" />
           <a
             href={socialMedia.linkedin.link}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <IconBrandLinkedin size='48px' />
+            <IconBrandLinkedin size="48px" />
           </a>
-          <Spacer direction='horizontal' />
+          <Spacer direction="horizontal" />
+          <a
+            href={socialMedia.youtube.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <IconBrandYoutube size="48px" />
+          </a>
+          <Spacer direction="horizontal" />
           <a
             href={socialMedia.github.link}
-            target='_blank'
-            rel='noopener noreferrer'
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <IconBrandGithub size='48px' />
+            <IconBrandGithub size="48px" />
           </a>
         </SocialMedia>
         <SideMenu />
       </Content>
     </Container>
-  )
-}
+  );
+};

@@ -1,9 +1,9 @@
-import { createRef, useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { Breakpoints } from '../styles/breakpoints'
-import { Colors } from '../styles/colors'
-import { Spacings } from '../styles/spacings'
-import { StyledTitle } from './shared'
+import { createRef, useEffect, useState } from "react";
+import styled from "styled-components";
+import { Breakpoints } from "../styles/breakpoints";
+import { Colors } from "../styles/colors";
+import { Spacings } from "../styles/spacings";
+import { StyledTitle } from "./shared";
 
 const Container = styled.div`
   height: 300px;
@@ -19,7 +19,7 @@ const Container = styled.div`
   ${Breakpoints.minMedia.desktop} {
     margin-top: 20vh;
   }
-`
+`;
 
 const RotatedTitle = styled(StyledTitle)`
   position: absolute;
@@ -31,7 +31,7 @@ const RotatedTitle = styled(StyledTitle)`
   ${Breakpoints.minMedia.largeDesktop} {
     right: 30%;
   }
-`
+`;
 
 const Partner = styled.img`
   margin-right: ${Spacings.lg};
@@ -40,7 +40,7 @@ const Partner = styled.img`
     height: 80px;
     margin-right: ${Spacings.xxl};
   }
-`
+`;
 
 const Content = styled.div`
   position: absolute;
@@ -56,26 +56,26 @@ const Content = styled.div`
   ${Breakpoints.minMedia.largeDesktop} {
     left: 50%;
   }
-`
+`;
 
 const PreviousPartners = () => {
-  const partners = ['kvd', 'polestar', 'sendify', 'vasttrafik']
-  const [x, setX] = useState(0)
-  const ref = createRef<HTMLDivElement>()
+  const partners = ["kvd", "polestar", "sendify", "vasttrafik", "astra-zeneca"];
+  const [x, setX] = useState(0);
+  const ref = createRef<HTMLDivElement>();
 
   useEffect(() => {
-    ;() => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
     const handleScroll = () => {
-      const offset = ref.current?.offsetTop ?? 0
-      setX(window.scrollY - offset)
+      const offset = ref.current?.offsetTop ?? 0;
+      setX(window.scrollY - offset);
       if (x > 0) {
-        ref.current?.classList.add('show')
+        ref.current?.classList.add("show");
       }
-    }
-    window.addEventListener('scroll', handleScroll)
-  }, [])
+    };
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <Container ref={ref}>
@@ -83,17 +83,17 @@ const PreviousPartners = () => {
         Happy clients
       </RotatedTitle>
       <Content style={{ transform: `rotate(10deg) translateX(-${x}px)` }}>
-        {partners.map(p => (
+        {partners.map((p) => (
           <Partner
-            key={'partner-' + p}
-            alt={'partner ' + p + ' logo'}
+            key={"partner-" + p}
+            alt={"partner " + p + " logo"}
             src={`assets/${p}-logo.svg`}
-            height='40px'
+            height="40px"
           />
         ))}
       </Content>
     </Container>
-  )
-}
+  );
+};
 
-export default PreviousPartners
+export default PreviousPartners;
