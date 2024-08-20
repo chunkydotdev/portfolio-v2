@@ -113,7 +113,7 @@ export const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconBrandTwitter size="48px" />
+            <IconBrandTwitter size="36px" />
           </a>
           <Spacer direction="horizontal" />
           <a
@@ -121,7 +121,7 @@ export const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconBrandLinkedin size="48px" />
+            <IconBrandLinkedin size="36px" />
           </a>
           <Spacer direction="horizontal" />
           <a
@@ -129,7 +129,7 @@ export const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconBrandYoutube size="48px" />
+            <IconBrandYoutube size="36px" />
           </a>
           <Spacer direction="horizontal" />
           <a
@@ -137,7 +137,7 @@ export const Header = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconBrandGithub size="48px" />
+            <IconBrandGithub size="36px" />
           </a>
         </SocialMedia>
         <SideMenu />
