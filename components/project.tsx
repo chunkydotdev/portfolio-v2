@@ -1,30 +1,30 @@
-import { IconBrandGithub, IconLink } from '@tabler/icons'
-import { useInView } from 'react-intersection-observer'
-import styled from 'styled-components'
-import { Breakpoints } from '../styles/breakpoints'
-import { Colors } from '../styles/colors'
-import { Spacings } from '../styles/spacings'
-import { Spacer, StyledLink, StyledTitle } from './shared'
+import { IconBrandGithub, IconLink } from "@tabler/icons";
+import { useInView } from "react-intersection-observer";
+import styled from "styled-components";
+import { Breakpoints } from "../styles/breakpoints";
+import { Colors } from "../styles/colors";
+import { Spacings } from "../styles/spacings";
+import { Spacer, StyledLink, StyledTitle } from "./shared";
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-`
+`;
 
 const Content = styled.div`
   position: relative;
   flex-direction: column;
   align-items: center;
   max-width: ${Breakpoints.size.largeDesktop};
-`
+`;
 
-const ProjectImage = styled.div<{ sm: string; lg: string }>`
-  background-image: url(${({ sm }) => sm});
-  background-size: cover;
+const ProjectImage = styled.div<{ lg: string }>`
+  background-image: url(${({ lg }) => lg});
+  background-size: contain;
   background-repeat: no-repeat;
-  width: 300px;
-  height: 200px;
+  width: 400px;
+  height: 300px;
   transform: rotate(-25deg) translateX(-20vw);
   opacity: 0;
   transition: 0.5s all;
@@ -48,7 +48,7 @@ const ProjectImage = styled.div<{ sm: string; lg: string }>`
     height: 400px;
     background-image: url(${({ lg }) => lg});
   }
-`
+`;
 
 const Description = styled.div`
   background-color: ${Colors.primary};
@@ -67,7 +67,7 @@ const Description = styled.div`
     top: 40%;
     left: -100px;
   }
-`
+`;
 
 const StackContainer = styled.div`
   display: flex;
@@ -81,7 +81,7 @@ const StackContainer = styled.div`
   ${Breakpoints.minMedia.tablet} {
     width: 50%;
   }
-`
+`;
 
 const Stack = styled.div`
   background-color: #fff;
@@ -92,14 +92,14 @@ const Stack = styled.div`
   margin: ${Spacings.xs};
   padding: ${Spacings.xs} ${Spacings.sm};
   white-space: nowrap;
-`
+`;
 
 const Links = styled.div`
   position: absolute;
   top: ${Spacings.sm};
   right: ${Spacings.sm};
   display: flex;
-`
+`;
 
 const AnimatedTitle = styled(StyledTitle)`
   transform: translateX(-100vh);
@@ -108,35 +108,35 @@ const AnimatedTitle = styled(StyledTitle)`
   &.show {
     transform: translateX(0);
   }
-`
+`;
 
 type Props = {
-  image: { sm: string; lg: string }
-  title: string
-  description: string
-  stack: string[]
-  url: string
-  github?: string
-}
+  image: { lg: string };
+  title: string;
+  description: string;
+  stack: string[];
+  url: string;
+  github?: string;
+};
 
-type Tech = 'react' | 'nextjs' | 'sqlite'
+type Tech = "react" | "nextjs" | "sqlite";
 
 const Project = ({ image, title, description, stack, url, github }: Props) => {
-  const { inView, ref } = useInView({ threshold: 0.2 })
+  const { inView, ref } = useInView({ threshold: 0.2 });
 
   return (
     <Container ref={ref}>
       <Content>
-        <AnimatedTitle className={inView ? 'show' : ''} level={2}>
+        <AnimatedTitle className={inView ? "show" : ""} level={2}>
           {title}
         </AnimatedTitle>
         <Links>
-          <StyledLink href={url} target='_blank' rel='noopener noreferrer'>
+          <StyledLink href={url} target="_blank" rel="noopener noreferrer">
             <IconLink />
           </StyledLink>
           {github && (
             <>
-              <Spacer direction='horizontal' />
+              <Spacer direction="horizontal" />
               <StyledLink>
                 <IconBrandGithub />
               </StyledLink>
@@ -144,22 +144,18 @@ const Project = ({ image, title, description, stack, url, github }: Props) => {
           )}
         </Links>
         <Spacer />
-        <ProjectImage
-          className={inView ? 'show' : ''}
-          sm={image.sm}
-          lg={image.lg}
-        />
-        <Description className={inView ? 'show' : ''}>
+        <ProjectImage className={inView ? "show" : ""} lg={image.lg} />
+        <Description className={inView ? "show" : ""}>
           {description}
         </Description>
         <StackContainer>
-          {stack.map(tech => (
+          {stack.map((tech) => (
             <Stack key={tech}>{tech}</Stack>
           ))}
         </StackContainer>
       </Content>
     </Container>
-  )
-}
+  );
+};
 
-export default Project
+export default Project;

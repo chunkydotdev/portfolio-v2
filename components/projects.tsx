@@ -80,39 +80,53 @@ const Projects = () => {
       description:
         "A place to store collections (buns) of links so that you can share them with eachother",
       image: {
-        sm: "/assets/linkbun-sm.png",
         lg: "/assets/linkbun.png",
       },
       stack: ["react", "nextjs", "tailwind-css", "firebase"],
       url: "https://linkbun.io",
     },
     {
-      title: "Här var det släckt",
+      title: "Felio",
       description:
-        "A tool to help people in sweden report broken street lights.",
+        "A tool to help people in sweden report broken infrastructure, trash and other issues.",
       image: {
-        sm: "/assets/hvds-sm.png",
-        lg: "/assets/hvds.png",
+        lg: "/assets/felio.png",
       },
-      stack: ["react", "nextjs", "tailwind-css", "firebase"],
-      url: "https://härvardetsläckt.se",
+      stack: ["react", "nextjs", "tailwind-css", "firebase", "mongodb"],
+      url: "https://felio.se",
     },
     {
-      title: "Gradiento",
-      description: "A tool to place your images in a gradient canvas",
+      title: "HappyPanda",
+      description:
+        "Helps businesses collect and analyze feedback from customers.",
       image: {
-        sm: "/assets/gradiento-sm.png",
-        lg: "/assets/gradiento.png",
+        lg: "/assets/happypanda.png",
       },
-      stack: ["react", "nextjs", "styled-components"],
-      url: "https://gradien.to",
+      stack: [
+        "react",
+        "nextjs",
+        "tailwind-css",
+        "shadcn",
+        "firebase-auth",
+        "mongodb",
+      ],
+      url: "https://happypanda.ai",
+    },
+    {
+      title: "Pomoti.me",
+      description:
+        "A pomodoro timer for your browser, with project tracking and customizable shareable timers.",
+      image: {
+        lg: "/assets/pomotime.png",
+      },
+      stack: ["react", "nextjs", "tailwind-css", "shadcn"],
+      url: "https://pomoti.me",
     },
     {
       title: "Dank.Tools",
       description:
         "A tool to help you create a time-tag for discord which gives the same time in different timezones.",
       image: {
-        sm: "/assets/danktools-sm.png",
         lg: "/assets/danktools.png",
       },
       stack: ["react", "nextjs", "styled-components"],
@@ -134,13 +148,6 @@ const Projects = () => {
         <StyledTitle noMargin level={3}>
           You are special!
           <BouncingHeart />
-          {/*
-          More projects on my{" "}
-          <CTALink href="https://chunky.dev/">
-            blog
-            <BouncingHeart />
-          </CTALink>
-           */}
         </StyledTitle>
       </ProjectsFooter>
     </Container>

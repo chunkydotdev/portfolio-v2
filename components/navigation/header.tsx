@@ -86,7 +86,6 @@ export const Header = () => {
   const pages = [
     { name: "Up top", url: "#up-top" },
     { name: "Projects", url: "#projects" },
-    { name: "Blog", url: "https://chunky.dev/" },
     { name: "Contact", url: "#contact" },
   ];
   return (
