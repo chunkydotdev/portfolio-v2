@@ -76,6 +76,35 @@ const ProjectsFooter = styled.div`
 const Projects = () => {
 	const projects = [
 		{
+			title: "Buildable",
+			description:
+				"Bring the idea. Buildable plans the backlog, scaffolds a private repo, then streams MCP tasks to any AI assistant.",
+			image: {
+				lg: "/assets/bldbl.png",
+			},
+			stack: ["react", "nextjs", "shadcn", "neobrutalism.dev", "supabase"],
+			url: "https://bldbl.dev",
+		},
+		{
+			title: "sbet.rocks",
+			description:
+				"A financial data dashboard for Sharplink Gaming, a blockchain Decentraliced Asset Treasury business on Nasdaq",
+			image: {
+				lg: "/assets/sbet-rocks.png",
+			},
+			stack: ["react", "nextjs", "shadcn", "supabase"],
+			url: "https://sbet.rocks",
+		},
+		{
+			title: "Dank.Tools",
+			description: "A hub for open source tools and other projects I've made",
+			image: {
+				lg: "/assets/danktools.png",
+			},
+			stack: ["react", "nextjs", "styled-components"],
+			url: "https://dank.tools",
+		},
+		{
 			title: "Linkbun",
 			description:
 				"A place to store collections (buns) of links so that you can share them with eachother",
@@ -121,26 +150,6 @@ const Projects = () => {
 			},
 			stack: ["react", "nextjs", "tailwind-css", "shadcn"],
 			url: "https://pomoti.me",
-		},
-		{
-			title: "Dank.Tools",
-			description:
-				"A tool to help you create a time-tag for discord which gives the same time in different timezones.",
-			image: {
-				lg: "/assets/danktools.png",
-			},
-			stack: ["react", "nextjs", "styled-components"],
-			url: "https://dank.tools",
-		},
-		{
-			title: "Buildable",
-			description:
-				"Bring the idea. Buildable plans the backlog, scaffolds a private repo, then streams MCP tasks to any AI assistant.",
-			image: {
-				lg: "/assets/bldbl.png",
-			},
-			stack: ["react", "nextjs", "shadcn", "neobrutalism.dev", "supabase"],
-			url: "https://bldbl.dev",
 		},
 	];
 
