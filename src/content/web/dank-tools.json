@@ -1,0 +1,14 @@
+{
+  "slug": "dank-tools",
+  "title": "Dank.Tools",
+  "description": "Open source tools for developers and other tech people.",
+  "longDescription": "Dank.Tools is a hub for open source developer utilities and tools. It provides a collection of helpful tools for developers, designers, and tech enthusiasts to streamline their workflows and boost productivity.",
+  "image": {
+    "thumbnail": "/assets/danktools.png",
+    "hero": "/assets/danktools.png"
+  },
+  "stack": ["React", "Next.js", "styled-components"],
+  "url": "https://dank.tools",
+  "featured": true,
+  "order": 3
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "pomotime",
+  "title": "Pomoti.me",
+  "description": "Minimal pomodoro timer.",
+  "longDescription": "Pomoti.me is a clean, minimal pomodoro timer designed to help you stay focused and productive. Features a distraction-free interface with customizable timer settings.",
+  "image": {
+    "thumbnail": "/assets/pomotime.png",
+    "hero": "/assets/pomotime.png"
+  },
+  "stack": ["React", "Next.js", "Tailwind CSS", "shadcn"],
+  "url": "https://pomoti.me",
+  "featured": false,
+  "order": 7
+}

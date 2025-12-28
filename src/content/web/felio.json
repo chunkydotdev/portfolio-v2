@@ -1,0 +1,14 @@
+{
+  "slug": "felio",
+  "title": "Felio",
+  "description": "Easy infrastructure reporting in Sweden.",
+  "longDescription": "Felio is a Swedish infrastructure reporting tool that simplifies the process of reporting and tracking infrastructure issues. Built to help municipalities and organizations manage and maintain their infrastructure efficiently.",
+  "image": {
+    "thumbnail": "/assets/felio.png",
+    "hero": "/assets/felio.png"
+  },
+  "stack": ["React", "Next.js", "Tailwind CSS", "Firebase", "MongoDB"],
+  "url": "https://felio.se",
+  "featured": false,
+  "order": 5
+}
