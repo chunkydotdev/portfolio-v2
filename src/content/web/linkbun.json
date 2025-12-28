@@ -1,0 +1,14 @@
+{
+  "slug": "linkbun",
+  "title": "Linkbun",
+  "description": "Create and share your link collection with the world.",
+  "longDescription": "Linkbun is a link collection sharing platform that allows users to curate and share their favorite links with others. Perfect for creating resource lists, bookmarks, and curated content collections.",
+  "image": {
+    "thumbnail": "/assets/linkbun.png",
+    "hero": "/assets/linkbun.png"
+  },
+  "stack": ["React", "Next.js", "Tailwind CSS", "Firebase"],
+  "url": "https://linkbun.io",
+  "featured": true,
+  "order": 4
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "emotion-tracker",
+  "title": "Emotion Tracker: Daily Mood",
+  "description": "Simple Daily Emotion Tracker is the easy way to understand your emotions, spot patterns, and build emotional strength over time.",
+  "longDescription": "Simple Daily Emotion Tracker is the easy way to understand your emotions, spot patterns, and build emotional strength over time.\n\nLog your feelings in seconds with an intuitive emotion wheel, add quick notes or tags, and watch your streaks grow as you check in daily. Our AI-powered insights help you uncover trends, like how sleep or daily habits affect your mood, while integrating with HealthKit for even deeper patterns.\n\nWhether you're looking to manage stress and anxiety, boost self-awareness, improve relationships, or simply feel more in control, Simple Daily Emotion Tracker turns everyday check-ins into powerful habits for emotional fitness.\n\n**Key Features:**\n\n- Quick daily logging with a beautiful emotion wheel and intensity sliders\n- Gamified streaks and badges to keep you motivated\n- AI insights and predictions based on your personal patterns\n- Stunning charts and calendar views for progress tracking\n- Custom tags and reminders for personalized reflection\n- Seamless HealthKit integration to connect moods with sleep, energy, and activity\n- Secure cloud sync, your data is private and always backed up\n\n**Unlock Pro for Even More:**\n\n- Unlimited entries and advanced AI forecasts\n- Detailed trend analysis and exports\n- Custom themes and deeper customizations\n\nStart tracking today and discover what makes you thrive.",
+  "image": {
+    "thumbnail": "/assets/emotion-tracker/scr5.png",
+    "hero": "/assets/emotion-tracker/scr5.png",
+    "appIcon": "/assets/emotion-tracker/app-icon.png",
+    "gallery": [
+      "/assets/emotion-tracker/scr1.png",
+      "/assets/emotion-tracker/scr2.png",
+      "/assets/emotion-tracker/scr3.png",
+      "/assets/emotion-tracker/scr4.png",
+      "/assets/emotion-tracker/scr5.png"
+    ]
+  },
+  "stack": ["Swift", "HealthKit", "RevenueCat", "OpenAI"],
+  "appStoreUrl": "",
+  "playStoreUrl": "",
+  "featured": true,
+  "order": 1,
+  "legal": {
+    "privacyPolicy": "/mobile/emotion-tracker/privacy",
+    "termsOfService": "/mobile/emotion-tracker/terms",
+    "effectiveDate": "2025-01-01",
+    "contactEmail": "support@example.com"
+  }
+}

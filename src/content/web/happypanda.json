@@ -1,0 +1,14 @@
+{
+  "slug": "happypanda",
+  "title": "HappyPanda",
+  "description": "Customer feedback and widget platform.",
+  "longDescription": "HappyPanda is a customer feedback platform that enables businesses to collect, analyze, and act on customer feedback. Features customizable widgets, analytics dashboards, and integration capabilities.",
+  "image": {
+    "thumbnail": "/assets/happypanda.png",
+    "hero": "/assets/happypanda.png"
+  },
+  "stack": ["React", "Next.js", "Tailwind CSS", "shadcn", "Firebase Auth", "MongoDB"],
+  "url": "https://happypanda.io",
+  "featured": false,
+  "order": 6
+}

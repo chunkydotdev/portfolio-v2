@@ -1,0 +1,14 @@
+{
+  "slug": "sbet-rocks",
+  "title": "sbet.rocks",
+  "description": "Dashboard for financial data for Sharplink Gaming Inc.",
+  "longDescription": "A comprehensive financial data dashboard built for Sharplink Gaming Inc. The platform provides real-time financial metrics, data visualization, and analytics to help stakeholders make informed decisions about the company's performance.",
+  "image": {
+    "thumbnail": "/assets/sbet-rocks.png",
+    "hero": "/assets/sbet-rocks.png"
+  },
+  "stack": ["React", "Next.js", "shadcn", "Supabase"],
+  "url": "https://sbet.rocks",
+  "featured": true,
+  "order": 2
+}

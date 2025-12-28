@@ -1,0 +1,14 @@
+{
+  "slug": "buildable",
+  "title": "Buildable",
+  "description": "Bring the idea. Buildable plans the backlog, scaffolds a private repo, then streams MCP tasks to any AI assistant.",
+  "longDescription": "Buildable is an AI-powered development platform that transforms your ideas into structured, actionable backlogs. It automatically scaffolds a private repository and streams MCP (Model Context Protocol) tasks to any AI assistant, making the development process seamless and efficient. Perfect for developers who want to accelerate their workflow with AI assistance.",
+  "image": {
+    "thumbnail": "/assets/bldbl.png",
+    "hero": "/assets/bldbl.png"
+  },
+  "stack": ["React", "Next.js", "shadcn", "neobrutalism.dev", "Supabase"],
+  "url": "https://bldbl.dev",
+  "featured": true,
+  "order": 1
+}
