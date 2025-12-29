@@ -84,27 +84,52 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
 // Simple markdown to HTML converter for basic rendering
 function formatMarkdown(content: string): string {
-  return content
-    // Headers
-    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+  let html = content
+    // Images (must come before links to avoid conflict)
+    .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1" class="rounded-xl my-8 w-full" />')
+    // Headers with spacing
+    .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold mt-8 mb-4">$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mt-12 mb-6">$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mt-12 mb-6">$1</h1>')
     // Bold
-    .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
+    .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
     // Italic
-    .replace(/\*(.*)\*/gim, '<em>$1</em>')
+    .replace(/\*(.*?)\*/gim, '<em>$1</em>')
     // Links
-    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2">$1</a>')
-    // Lists
-    .replace(/^\- (.*$)/gim, '<li>$1</li>')
-    // Paragraphs
-    .replace(/\n\n/gim, '</p><p>')
-    // Wrap in paragraph
-    .replace(/^(.+)$/gim, '<p>$1</p>')
-    // Clean up empty paragraphs
-    .replace(/<p><\/p>/g, '')
-    .replace(/<p><h/g, '<h')
-    .replace(/<\/h(\d)><\/p>/g, '</h$1>')
-    .replace(/<p><li>/g, '<li>')
-    .replace(/<\/li><\/p>/g, '</li>')
+    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" class="text-primary hover:underline">$1</a>')
+    // Lists - mark them for later wrapping
+    .replace(/^\- (.*$)/gim, '<li class="ml-6 mb-2">$1</li>')
+
+  // Wrap consecutive <li> elements in <ul>
+  html = html.replace(/(<li[^>]*>.*?<\/li>\n?)+/gim, (match) => {
+    return `<ul class="list-disc my-6 space-y-1">${match}</ul>`
+  })
+
+  html = html
+    // Paragraphs - split by double newlines
+    .split(/\n\n+/)
+    .map(block => {
+      block = block.trim()
+      if (!block) return ''
+      // Don't wrap if already an HTML element
+      if (block.startsWith('<h') ||
+          block.startsWith('<ul') ||
+          block.startsWith('<img') ||
+          block.startsWith('<div') ||
+          block.startsWith('<p')) {
+        return block
+      }
+      return `<p class="my-4 leading-relaxed">${block}</p>`
+    })
+    .join('\n')
+
+  // Clean up any remaining issues
+  html = html
+    .replace(/<p class="my-4 leading-relaxed"><(h[123]|ul|img|div)/g, '<$1')
+    .replace(/<\/(h[123]|ul|img|div)><\/p>/g, '</$1>')
+    .replace(/\n/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  return html
 }
