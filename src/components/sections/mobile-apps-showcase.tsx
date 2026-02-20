@@ -44,28 +44,10 @@ export function MobileAppsShowcase({ apps }: MobileAppsShowcaseProps) {
           </p>
         </motion.div>
 
-        {/* Floating phone icons */}
-        <motion.div
-          className="absolute top-1/4 left-1/4 text-4xl opacity-20"
-          animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-          transition={{ duration: 4, repeat: Infinity, delay: 0 }}
-        >
-          📱
-        </motion.div>
-        <motion.div
-          className="absolute top-1/3 right-1/4 text-3xl opacity-20"
-          animate={{ y: [0, -15, 0], rotate: [0, -10, 0] }}
-          transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}
-        >
-          📲
-        </motion.div>
-        <motion.div
-          className="absolute bottom-1/3 left-1/3 text-3xl opacity-20"
-          animate={{ y: [0, -25, 0], rotate: [0, 5, 0] }}
-          transition={{ duration: 4.5, repeat: Infinity, delay: 1 }}
-        >
-          🤳
-        </motion.div>
+        {/* Floating decorative elements */}
+        <div className="absolute top-1/4 left-1/4 w-16 h-16 border border-black/5 rotate-12" />
+        <div className="absolute top-1/3 right-1/4 w-12 h-12 border border-black/5 -rotate-6" />
+        <div className="absolute bottom-1/3 left-1/3 w-10 h-10 border border-black/5 rotate-45" />
       </div>
     )
   }
@@ -150,7 +132,7 @@ export function MobileAppsShowcase({ apps }: MobileAppsShowcaseProps) {
           <img
             src={activeApp.image.hero}
             alt={activeApp.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover grayscale"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
         </motion.div>

@@ -39,7 +39,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <main className="min-h-screen pt-24 pb-16 px-4">
       <article className="max-w-3xl mx-auto">
-        <Button asChild variant="ghost" className="mb-8">
+        <Button asChild variant="ghost" className="mb-8 text-black/40 hover:text-black">
           <Link href="/blog">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to blog
@@ -47,9 +47,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </Button>
 
         <header className="mb-12">
-          <h1 className="font-heading text-4xl md:text-5xl mb-6">{post.title}</h1>
+          <h1 className="font-heading text-5xl md:text-6xl mb-6">{post.title}</h1>
 
-          <div className="flex flex-wrap items-center gap-4 text-foreground/60">
+          <div className="flex flex-wrap items-center gap-4 text-black/40 text-sm">
             <span className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
               {new Date(post.date).toLocaleDateString('en-US', {
@@ -66,15 +66,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           <div className="flex gap-2 mt-4">
             {post.tags.map((tag) => (
-              <Badge key={tag} variant="secondary">
+              <Badge key={tag} variant="outline" className="text-[10px] tracking-wider uppercase">
                 {tag}
               </Badge>
             ))}
           </div>
+
+          <div className="w-full h-[1px] bg-black/10 mt-8" />
         </header>
 
-        <div className="prose prose-invert prose-lg max-w-none prose-headings:font-heading prose-headings:text-foreground prose-p:text-foreground/80 prose-a:text-primary prose-strong:text-foreground">
-          {/* MDX content would be rendered here */}
+        <div className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-black prose-p:text-black/70 prose-a:text-black prose-a:underline prose-strong:text-black">
           <div dangerouslySetInnerHTML={{ __html: formatMarkdown(post.content) }} />
         </div>
       </article>
@@ -86,7 +87,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 function formatMarkdown(content: string): string {
   let html = content
     // Images (must come before links to avoid conflict)
-    .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1" class="rounded-xl my-8 w-full" />')
+    .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1" class="my-8 w-full grayscale hover:grayscale-0 transition-all duration-500" />')
     // Headers with spacing
     .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold mt-8 mb-4">$1</h3>')
     .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mt-12 mb-6">$1</h2>')
@@ -96,7 +97,7 @@ function formatMarkdown(content: string): string {
     // Italic
     .replace(/\*(.*?)\*/gim, '<em>$1</em>')
     // Links
-    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" class="text-primary hover:underline">$1</a>')
+    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" class="text-black underline hover:no-underline">$1</a>')
     // Lists - mark them for later wrapping
     .replace(/^\- (.*$)/gim, '<li class="ml-6 mb-2">$1</li>')
 

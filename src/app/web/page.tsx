@@ -17,15 +17,18 @@ export default function WebAppsPage() {
       <div className="max-w-7xl mx-auto">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-black/40 hover:text-black transition-colors mb-8 text-sm tracking-wider uppercase"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to home
         </Link>
 
-        <h1 className="font-heading text-4xl md:text-5xl mb-8">Web Apps</h1>
+        <div className="flex items-center gap-4 mb-8">
+          <h1 className="font-heading text-4xl md:text-5xl">Web Apps</h1>
+          <div className="h-[1px] flex-1 bg-black/10" />
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1px] bg-black/10">
           {apps.map((app) => (
             <ProjectCard key={app.slug} project={app} type="web" />
           ))}

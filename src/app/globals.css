@@ -1,31 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
-
-/* Custom fonts */
-@font-face {
-  font-family: 'Londrina Solid';
-  src: url('/LondrinaSolid-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Fresca';
-  src: url('/Fresca-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
-  --font-heading: 'Londrina Solid', cursive;
-  --font-body: 'Fresca', sans-serif;
+  --font-heading: 'Fraunces', serif;
+  --font-body: 'Space Mono', monospace;
 
   /* shadcn color mappings */
   --color-sidebar-ring: var(--sidebar-ring);
@@ -67,50 +51,50 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.25rem;
 
-  /* Warm Light Theme */
-  --background: #fbf7ec;
-  --foreground: #494335;
+  /* Pure Black & White Theme */
+  --background: #ffffff;
+  --foreground: #000000;
 
   --card: #ffffff;
-  --card-foreground: #494335;
+  --card-foreground: #000000;
 
   --popover: #ffffff;
-  --popover-foreground: #494335;
+  --popover-foreground: #000000;
 
-  --primary: #90615c;
-  --primary-foreground: #fbf7ec;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
 
-  --secondary: #f0ebe0;
-  --secondary-foreground: #494335;
+  --secondary: #f0f0f0;
+  --secondary-foreground: #000000;
 
-  --muted: #f0ebe0;
-  --muted-foreground: #6b6355;
+  --muted: #f0f0f0;
+  --muted-foreground: #666666;
 
-  --accent: #f0ebe0;
-  --accent-foreground: #494335;
+  --accent: #f0f0f0;
+  --accent-foreground: #000000;
 
-  --destructive: #dc2626;
+  --destructive: #000000;
 
-  --border: #e0dbd0;
-  --input: #e0dbd0;
-  --ring: #90615c;
+  --border: #000000;
+  --input: #d4d4d4;
+  --ring: #000000;
 
-  --chart-1: #90615c;
-  --chart-2: #7c9a6e;
-  --chart-3: #6b8cae;
-  --chart-4: #c9a857;
-  --chart-5: #9b7bb0;
+  --chart-1: #000000;
+  --chart-2: #333333;
+  --chart-3: #666666;
+  --chart-4: #999999;
+  --chart-5: #cccccc;
 
-  --sidebar: #494335;
-  --sidebar-foreground: #fbf7ec;
-  --sidebar-primary: #90615c;
-  --sidebar-primary-foreground: #fbf7ec;
-  --sidebar-accent: #5a5346;
-  --sidebar-accent-foreground: #fbf7ec;
-  --sidebar-border: #5a5346;
-  --sidebar-ring: #90615c;
+  --sidebar: #000000;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #333333;
+  --sidebar-ring: #ffffff;
 }
 
 @layer base {
@@ -119,42 +103,90 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Fresca', sans-serif;
+    font-family: 'Space Mono', monospace;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Londrina Solid', cursive;
+    font-family: 'Fraunces', serif;
   }
 }
 
-/* Smooth scrolling for non-snap pages */
+/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - monochrome */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #fbf7ec;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e0dbd0;
-  border-radius: 4px;
+  background: #000000;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #90615c;
+  background: #333333;
 }
 
-/* Gradient text utility */
-.text-gradient {
-  background: linear-gradient(135deg, #90615c 0%, #a87d78 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Grain texture overlay */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  z-index: 1;
+}
+
+/* Horizontal rule accent */
+.rule-accent {
+  height: 2px;
+  background: #000000;
+}
+
+/* Strikethrough hover effect */
+.hover-strike {
+  position: relative;
+  display: inline-block;
+}
+.hover-strike::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #000000;
+  transition: width 0.3s ease;
+}
+.hover-strike:hover::after {
+  width: 100%;
+}
+
+/* Invert on hover utility */
+.hover-invert {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.hover-invert:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Grayscale images */
+.img-bw {
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+}
+.img-bw:hover {
+  filter: grayscale(0%);
 }
 
 /* Reduce motion for accessibility */

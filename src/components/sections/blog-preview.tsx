@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Calendar, Clock, Newspaper } from 'lucide-react'
 import { BlogPost } from '@/lib/blog'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
@@ -27,11 +26,11 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             className="mb-8"
           >
-            <Newspaper className="h-24 w-24 mx-auto text-primary" />
+            <Newspaper className="h-24 w-24 mx-auto text-black/20" />
           </motion.div>
           <h2 className="font-heading text-4xl md:text-6xl mb-4">Blog</h2>
-          <p className="text-xl text-foreground/70">Coming Soon!</p>
-          <p className="text-foreground/50 mt-2">
+          <p className="text-xl text-black/50">Coming Soon!</p>
+          <p className="text-black/30 mt-2">
             I'll be sharing thoughts on development and design
           </p>
         </motion.div>
@@ -46,17 +45,17 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl mb-4">
+          <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl mb-4">
             Latest Articles
           </h2>
-          <p className="text-foreground/70 text-lg">
+          <p className="text-black/50 text-lg">
             Thoughts on development, design, and building products
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-black/10 mb-8">
           {posts.slice(0, 4).map((post, i) => (
             <motion.div
               key={post.slug}
@@ -66,39 +65,35 @@ export function BlogPreview({ posts }: BlogPreviewProps) {
               transition={{ delay: i * 0.1 }}
             >
               <Link href={`/blog/${post.slug}`} className="block h-full">
-                <Card className="h-full hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
-                  <CardHeader>
-                    <CardTitle className="font-heading text-xl md:text-2xl line-clamp-2">
-                      {post.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-foreground/70 text-sm mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-foreground/50">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="h-3 w-3" />
-                        {new Date(post.date).toLocaleDateString('en-US', {
-                          month: 'short',
-                          day: 'numeric',
-                          year: 'numeric',
-                        })}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        {post.readingTime}
-                      </span>
-                    </div>
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {post.tags.slice(0, 3).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                <article className="bg-white p-8 h-full group hover:bg-black transition-colors duration-300">
+                  <h3 className="font-heading text-xl md:text-2xl line-clamp-2 mb-4 group-hover:text-white transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-black/60 text-sm mb-6 line-clamp-3 group-hover:text-white/60 transition-colors">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-3 text-xs text-black/40 group-hover:text-white/40 transition-colors">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="h-3 w-3" />
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                      })}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="h-3 w-3" />
+                      {post.readingTime}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {post.tags.slice(0, 3).map((tag) => (
+                      <Badge key={tag} variant="outline" className="text-[10px] tracking-wider uppercase group-hover:text-white/70 group-hover:border-white/20 transition-colors">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </article>
               </Link>
             </motion.div>
           ))}

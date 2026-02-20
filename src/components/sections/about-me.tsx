@@ -8,26 +8,29 @@ export function AboutMe() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center">
-        {/* Previous partners */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <p className="text-sm uppercase tracking-wider text-foreground/50 mb-6">
-            Trusted by companies like
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-[1px] w-12 bg-black/20" />
+            <p className="text-[11px] uppercase tracking-[0.3em] text-black/40">
+              Trusted by
+            </p>
+            <div className="h-[1px] w-12 bg-black/20" />
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
             {partners.map((partner, i) => (
               <motion.div
                 key={partner.id}
                 initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 0.7, scale: 1 }}
-                whileHover={{ opacity: 1, scale: 1.1 }}
+                whileInView={{ opacity: 0.4, scale: 1 }}
+                whileHover={{ opacity: 1, scale: 1.05 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 + i * 0.1, duration: 0.4 }}
-                className="grayscale hover:grayscale-0 transition-all cursor-default"
+                className="grayscale transition-all cursor-default"
               >
                 <Image
                   src={partner.logo}

@@ -76,7 +76,7 @@ export default async function MobileAppPage({ params }: PageProps) {
       <div className="max-w-4xl mx-auto">
         <Link
           href="/mobile"
-          className="inline-flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-black/40 hover:text-black transition-colors mb-8 text-sm tracking-wider uppercase"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to all mobile apps
@@ -85,19 +85,19 @@ export default async function MobileAppPage({ params }: PageProps) {
         {/* App Icon & Hero */}
         <div className="flex flex-col md:flex-row gap-6 items-start mb-8">
           {app.image.appIcon && (
-            <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-lg flex-shrink-0">
+            <div className="w-24 h-24 overflow-hidden shadow-lg flex-shrink-0 border border-black/10">
               <img
                 src={app.image.appIcon}
                 alt={`${app.title} icon`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"
               />
             </div>
           )}
           <div>
-            <h1 className="font-heading text-4xl md:text-5xl mb-4">{app.title}</h1>
+            <h1 className="font-heading text-5xl md:text-6xl mb-4">{app.title}</h1>
             <div className="flex flex-wrap gap-2">
               {app.stack.map((tech) => (
-                <Badge key={tech} variant="secondary">
+                <Badge key={tech} variant="outline" className="text-[10px] tracking-wider uppercase">
                   {tech}
                 </Badge>
               ))}
@@ -106,17 +106,19 @@ export default async function MobileAppPage({ params }: PageProps) {
         </div>
 
         {/* Hero Image */}
-        <div className="relative rounded-lg overflow-hidden mb-8 shadow-xl">
+        <div className="relative overflow-hidden mb-8 border border-black/10">
           <img
             src={app.image.hero}
             alt={app.title}
-            className="w-full h-auto"
+            className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500"
           />
         </div>
 
+        <div className="w-full h-[1px] bg-black/10 my-8" />
+
         {/* Description */}
         <div
-          className="mb-8 prose prose-invert prose-lg max-w-none prose-headings:font-heading prose-headings:text-foreground prose-p:text-foreground/90 prose-li:text-foreground/90 prose-strong:text-foreground prose-ul:list-disc prose-ul:pl-5"
+          className="mb-8 prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-black prose-p:text-black/70 prose-li:text-black/70 prose-strong:text-black prose-ul:list-disc prose-ul:pl-5"
           dangerouslySetInnerHTML={{
             __html: formatMarkdown(app.longDescription || app.description)
           }}
@@ -154,17 +156,17 @@ export default async function MobileAppPage({ params }: PageProps) {
 
         {/* Legal Links */}
         {app.legal && (
-          <div className="flex flex-wrap gap-4 mb-12 p-4 bg-secondary/20 rounded-lg">
+          <div className="flex flex-wrap gap-6 mb-12 p-6 border border-black/10">
             <Link
               href={`/mobile/${app.slug}/privacy`}
-              className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors"
+              className="flex items-center gap-2 text-black/40 hover:text-black transition-colors text-sm tracking-wider uppercase"
             >
               <Shield className="w-4 h-4" />
               Privacy Policy
             </Link>
             <Link
               href={`/mobile/${app.slug}/terms`}
-              className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors"
+              className="flex items-center gap-2 text-black/40 hover:text-black transition-colors text-sm tracking-wider uppercase"
             >
               <FileText className="w-4 h-4" />
               Terms of Service
@@ -175,14 +177,17 @@ export default async function MobileAppPage({ params }: PageProps) {
         {/* Gallery */}
         {app.image.gallery && app.image.gallery.length > 0 && (
           <div className="mb-12">
-            <h2 className="font-heading text-2xl mb-4">Screenshots</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="flex items-center gap-4 mb-6">
+              <h2 className="font-heading text-2xl">Screenshots</h2>
+              <div className="h-[1px] flex-1 bg-black/10" />
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-[1px] bg-black/10">
               {app.image.gallery.map((image, index) => (
-                <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+                <div key={index} className="overflow-hidden bg-white">
                   <img
                     src={image}
                     alt={`${app.title} screenshot ${index + 1}`}
-                    className="w-full h-auto"
+                    className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500"
                   />
                 </div>
               ))}

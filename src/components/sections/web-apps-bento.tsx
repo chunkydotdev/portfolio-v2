@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -16,14 +16,14 @@ export function WebAppsBento({ apps }: WebAppsBentoProps) {
   if (apps.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-xl text-foreground/70">No web apps to display</p>
+        <p className="text-xl text-black/50">No web apps to display</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[280px]">
+    <div className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1px] bg-black/10 auto-rows-[280px]">
         {apps.map((app, index) => (
           <BentoCard
             key={app.slug}
@@ -57,8 +57,8 @@ function BentoCard({ app, className }: BentoCardProps) {
     <Link
       href={`/web/${app.slug}`}
       className={cn(
-        "group relative rounded-2xl overflow-hidden bg-card border border-border",
-        "transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1",
+        "group relative overflow-hidden bg-white",
+        "transition-all duration-300 hover:z-10",
         className
       )}
     >
@@ -66,13 +66,13 @@ function BentoCard({ app, className }: BentoCardProps) {
       <Image
         src={app.image.hero}
         alt={app.title}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
         width={1920}
         height={1080}
       />
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-70 group-hover:opacity-80 transition-opacity" />
 
       {/* Content */}
       <div className="absolute inset-0 p-6 flex flex-col justify-end">
@@ -81,23 +81,23 @@ function BentoCard({ app, className }: BentoCardProps) {
             <Badge
               key={tech}
               variant="outline"
-              className="text-xs bg-background/80 backdrop-blur-sm"
+              className="text-[10px] tracking-wider uppercase bg-white/10 backdrop-blur-sm text-white border-white/20"
             >
               {tech}
             </Badge>
           ))}
         </div>
 
-        <h3 className="font-heading text-2xl md:text-3xl mb-2 group-hover:text-primary transition-colors">
+        <h3 className="font-heading text-2xl md:text-3xl mb-2 text-white">
           {app.title}
         </h3>
 
-        <p className="text-sm text-foreground/80 line-clamp-2 mb-4">
+        <p className="text-sm text-white/70 line-clamp-2 mb-4">
           {app.description}
         </p>
 
         <div className="flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
-          <span className="text-sm font-medium text-primary flex items-center gap-1">
+          <span className="text-sm text-white flex items-center gap-1 tracking-wide uppercase">
             View project <ArrowRight className="h-3 w-3" />
           </span>
         </div>

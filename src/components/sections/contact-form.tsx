@@ -44,17 +44,26 @@ export function ContactForm() {
   return (
     <div id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto w-full">
-        <motion.h2
-          className="font-heading text-4xl md:text-5xl text-center mb-4"
+        <motion.div
+          className="text-center mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Let's jam! 🎸
-        </motion.h2>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="h-[1px] w-8 bg-black/20" />
+            <p className="text-[11px] uppercase tracking-[0.3em] text-black/40">
+              Get in touch
+            </p>
+            <div className="h-[1px] w-8 bg-black/20" />
+          </div>
+          <h2 className="font-heading text-4xl md:text-5xl">
+            Let&apos;s work together
+          </h2>
+        </motion.div>
         <motion.p
-          className="text-center text-foreground/80 mb-8"
+          className="text-center text-black/50 mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -68,7 +77,7 @@ export function ContactForm() {
             <motion.form
               key="form"
               onSubmit={handleSubmit}
-              className="space-y-4 bg-secondary/30 p-6 rounded-lg"
+              className="space-y-4 border border-black/10 p-8"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
@@ -81,7 +90,7 @@ export function ContactForm() {
                   placeholder="Your name"
                   required
                   disabled={isPending}
-                  className="bg-background/50"
+                  className="bg-white border-black/15 focus-visible:border-black focus-visible:ring-black/10"
                 />
               </div>
               <div>
@@ -91,7 +100,7 @@ export function ContactForm() {
                   placeholder="Your email"
                   required
                   disabled={isPending}
-                  className="bg-background/50"
+                  className="bg-white border-black/15 focus-visible:border-black focus-visible:ring-black/10"
                 />
               </div>
               <div>
@@ -101,7 +110,7 @@ export function ContactForm() {
                   rows={4}
                   required
                   disabled={isPending}
-                  className="bg-background/50 resize-none"
+                  className="bg-white resize-none border-black/15 focus-visible:border-black focus-visible:ring-black/10"
                 />
               </div>
               <Button
@@ -122,7 +131,7 @@ export function ContactForm() {
           ) : (
             <motion.div
               key="success"
-              className="text-center py-12 bg-secondary/30 rounded-lg"
+              className="text-center py-12 border border-black/10"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
@@ -131,13 +140,12 @@ export function ContactForm() {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                className="text-6xl mb-4"
+                className="text-4xl font-heading mb-4"
               >
-                🎉
+                Thank you!
               </motion.div>
-              <p className="text-2xl font-heading mb-2">Thank you!</p>
-              <p className="text-foreground/80">
-                I will be in touch as soon as I can!
+              <p className="text-black/60">
+                I will be in touch as soon as I can.
               </p>
             </motion.div>
           )}
@@ -145,7 +153,7 @@ export function ContactForm() {
 
         {/* Social Links */}
         <motion.div
-          className="flex items-center justify-center gap-6 mt-8"
+          className="flex items-center justify-center gap-6 mt-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -157,7 +165,7 @@ export function ContactForm() {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground hover:text-primary transition-colors"
+              className="text-black/30 hover:text-black transition-colors"
               aria-label={social.label}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -165,20 +173,20 @@ export function ContactForm() {
               transition={{ delay: 0.5 + i * 0.1 }}
               whileHover={{ scale: 1.2 }}
             >
-              <social.icon className="h-6 w-6" />
+              <social.icon className="h-5 w-5" />
             </motion.a>
           ))}
         </motion.div>
 
         {/* Footer */}
         <motion.div
-          className="text-center mt-12 text-foreground/60 text-sm"
+          className="text-center mt-12 text-black/30 text-xs tracking-wider uppercase"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
         >
-          <p>© {new Date().getFullYear()} Magnus Junghard Jägryd. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Magnus Junghard J&auml;gryd</p>
         </motion.div>
       </div>
     </div>

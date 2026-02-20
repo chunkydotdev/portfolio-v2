@@ -40,32 +40,34 @@ export default async function TermsOfServicePage({ params }: PageProps) {
       <div className="max-w-3xl mx-auto">
         <Link
           href={`/mobile/${app.slug}`}
-          className="inline-flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-black/40 hover:text-black transition-colors mb-8 text-sm tracking-wider uppercase"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to {app.title}
         </Link>
 
         <h1 className="font-heading text-4xl md:text-5xl mb-4">Terms of Service</h1>
-        <p className="text-foreground/70 mb-8">
-          For {app.title} - Effective Date: {app.legal.effectiveDate}
+        <p className="text-black/40 mb-8 text-sm tracking-wider uppercase">
+          For {app.title} &mdash; Effective {app.legal.effectiveDate}
         </p>
 
-        <div className="prose prose-lg max-w-none bg-card p-6 md:p-8 rounded-lg">
+        <div className="w-full h-[1px] bg-black/10 mb-8" />
+
+        <div className="prose prose-lg max-w-none border border-black/10 p-6 md:p-8">
           <div
-            className="text-card-foreground/90 space-y-4"
+            className="text-black/70 space-y-4"
             dangerouslySetInnerHTML={{
               __html: app.legal.termsOfService.replace(/\n/g, '<br />'),
             }}
           />
         </div>
 
-        <div className="mt-8 p-4 bg-secondary/20 rounded-lg">
-          <p className="text-sm text-foreground/70">
+        <div className="mt-8 p-6 border border-black/10">
+          <p className="text-sm text-black/40">
             If you have any questions about these Terms of Service, please contact us at:{' '}
             <a
               href={`mailto:${app.legal.contactEmail}`}
-              className="text-link hover:underline"
+              className="text-black underline hover:no-underline"
             >
               {app.legal.contactEmail}
             </a>
