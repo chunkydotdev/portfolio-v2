@@ -1,0 +1,171 @@
+---
+title: "How to get your service on Cloudflare Domain Connect"
+excerpt: "A walkthrough of the entire process of becoming a Domain Connect service provider on Cloudflare — from writing your template to getting it live."
+date: "2026-03-07"
+tags: ["dns", "cloudflare", "domain-connect"]
+---
+
+If you run a service that needs DNS records configured on your users' domains, [Domain Connect](https://www.domainconnect.org/) is the open standard that makes this seamless. Instead of asking users to manually add CNAME or MX records, they click a button and the records are configured automatically.
+
+I just went through this process for [molted.email](https://molted.email), and here's the full breakdown of how it works.
+
+## What is Domain Connect?
+
+Domain Connect is an open protocol that lets service providers request DNS changes on a user's domain through their DNS provider — no manual record editing required. Major DNS providers like Cloudflare, GoDaddy, and others support it.
+
+When a user wants to connect their domain to your service, instead of showing them a wall of DNS records to copy-paste, you redirect them to their DNS provider's Domain Connect flow. They approve the changes, and the records are applied automatically.
+
+## Step 1: Create your template
+
+Everything starts with a template — a JSON file that describes what DNS records your service needs. Templates follow a strict naming convention:
+
+```
+<providerId>.<serviceId>.json
+```
+
+For example, mine is `molted.email.moltedemail.json`.
+
+The template defines:
+
+- **Provider ID and Service ID** — identifies your service
+- **Service Provider Name** — displayed to users in the Cloudflare UI
+- **Logo** — shown alongside the provider name (SVG preferred)
+- **syncPubKeyDomain** — a domain where you publish your public key as a TXT record (required for Cloudflare)
+- **syncBlock** — must be `false` for Cloudflare (only synchronous flow is supported)
+- **DNS records** — the actual records to be created, with variable substitution support
+
+Here's the full template I used for Molted Email:
+
+```json
+{
+  "providerId": "molted.email",
+  "providerName": "Molted Email",
+  "serviceId": "moltedemail",
+  "serviceName": "Molted Email Authentication",
+  "version": 1,
+  "logoUrl": "https://molted.email/logo.svg",
+  "description": "Configures SPF, DKIM, DMARC and MX records for sending and receiving email via Molted Email",
+  "variableDescription": "dkimValue1: DKIM public key returned by Resend for this domain",
+  "syncBlock": false,
+  "syncPubKeyDomain": "molted.email",
+  "syncRedirectDomain": "molted.email",
+  "warnPhishing": true,
+  "hostRequired": false,
+  "records": [
+    {
+      "type": "TXT",
+      "host": "resend._domainkey",
+      "data": "%dkimValue1%",
+      "ttl": 3600
+    },
+    {
+      "type": "MX",
+      "host": "send",
+      "pointsTo": "feedback-smtp.eu-west-1.amazonses.com",
+      "priority": 10,
+      "ttl": 3600
+    },
+    {
+      "type": "SPFM",
+      "host": "send",
+      "spfRules": "include:amazonses.com"
+    },
+    {
+      "type": "TXT",
+      "host": "_dmarc",
+      "data": "v=DMARC1; p=none;",
+      "ttl": 3600,
+      "txtConflictMatchingMode": "All"
+    },
+    {
+      "type": "MX",
+      "host": "@",
+      "pointsTo": "inbound-smtp.eu-west-1.amazonaws.com",
+      "priority": 10,
+      "ttl": 3600
+    }
+  ]
+}
+```
+
+A few things worth noting about this template:
+
+- **`variableDescription`** - I use a `%dkimValue1%` variable so each user gets their own DKIM key injected at setup time
+- **`SPFM` record type** — this is a Domain Connect-specific type that merges SPF rules into an existing SPF record rather than creating a conflicting one
+- **`warnPhishing: true`** — flags the template as email-related, so the DNS provider can warn users about phishing risks before applying
+- **`hostRequired: false`** — the template works at the domain root, no subdomain needed
+
+### Cloudflare-specific constraints
+
+A few things to be aware of when targeting Cloudflare:
+
+- Only **synchronous** flow is supported — no async/OAuth consent flows
+- `syncBlock` **must** be `false`
+- Signatures are **required** and must be the last query parameter
+- Only `A`, `AAAA`, and `CNAME` records support proxy toggling
+- The `essential`, `txtConflictMatchingMode`, and `txtConflictMatchingPrefix` fields are **not supported**
+- `state` and `serviceName` parameters are also not supported
+
+## Step 2: Publish your public key
+
+Before Cloudflare will accept your template, you need to publish your signing key. Create a TXT record on the domain specified in your `syncPubKeyDomain` field containing your public key.
+
+This key is used to verify the digital signatures on synchronous API calls, proving requests actually come from your service.
+
+## Step 3: Validate your template
+
+Use the [Domain Connect linter tool](https://github.com/Domain-Connect/dc-template-linter) to validate your template. For Cloudflare specifically, run it with the `-cloudflare` flag:
+
+```bash
+dc-template-linter -cloudflare your-template.json
+```
+
+This checks your template against both the general Domain Connect schema and Cloudflare-specific rules. Your template **must** pass the schema check before it will be accepted.
+
+You can also use the [Domain Connect Online Editor](https://exampleservice.domainconnect.org/) for syntax checking and testing variable replacement.
+
+## Step 4: Submit a pull request
+
+Fork the official [Domain-Connect/Templates](https://github.com/Domain-Connect/Templates) repository on GitHub, add your template, and open a pull request. The Domain Connect community will review it and provide feedback if anything needs to change. [Here's the PR I submitted for Molted Email](https://github.com/Domain-Connect/Templates/pull/793) as a reference.
+
+Once the PR is reviewed and merged, your template is in the canonical repository — but it's not live on Cloudflare yet.
+
+## Step 5: Email Cloudflare
+
+This is the step that actually gets you onboarded. Send an email to **domain-connect@cloudflare.com** with:
+
+- **Links to your templates** — GitHub hyperlinks to each template in the repository
+- **syncPubKeyDomain FQDNs** — the fully qualified domain names where your TXT records with public keys can be queried
+- **Your logo** — preferably in SVG format
+- **Default proxy status** — whether `A`, `AAAA`, and `CNAME` records should be proxied by default
+- **Cloudflare account ID** (optional) — if you want to test before going live
+- **DNS provider discovery details** (optional) — if you want automation for detecting Cloudflare-managed domains
+
+After that, it's a matter of waiting for the Cloudflare team to process the onboarding.
+
+## After onboarding: automatic updates
+
+One nice thing about Cloudflare's setup — once you're onboarded, template updates are picked up automatically. An automation runs multiple times a day, comparing the version number in Cloudflare against the authoritative source in the repository. If you bump the version in your template, the update propagates within about eight hours. No need to email again for routine changes.
+
+## Common issues
+
+The most frequent post-onboarding problem is **validation errors with syncPubKeyDomain TXT records**. If your signing key isn't resolving properly, the whole flow breaks. Double-check that:
+
+1. Your TXT record is published and propagated
+2. The domain in `syncPubKeyDomain` exactly matches where the record lives
+3. Your signing implementation places the signature as the last query parameter
+
+If you need to troubleshoot, use Domain Connect's signature validation tool and send details (including timestamps, provider/service IDs, and HAR files) to `domain-connect@cloudflare.com`.
+
+## Wrapping up
+
+The process is straightforward but has several moving parts. To summarize the full pipeline:
+
+1. Write your template JSON following the naming convention
+2. Publish your signing public key as a DNS TXT record
+3. Validate with the linter (use the `-cloudflare` flag)
+4. Submit a PR to the Domain-Connect/Templates repository
+5. Email Cloudflare with your template links, key domains, and logo
+6. Wait for onboarding, then test the flow
+
+For [molted.email](https://molted.email), this means my users on Cloudflare can now connect their domain with a single click instead of manually configuring DNS records. That's a much better experience for everyone involved.
