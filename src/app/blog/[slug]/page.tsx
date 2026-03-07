@@ -86,6 +86,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 // Simple markdown to HTML converter for basic rendering
 function formatMarkdown(content: string): string {
   let html = content
+    // Fenced code blocks (``` with optional language)
+    .replace(/```(\w*)\n([\s\S]*?)```/gm, (_match, lang, code) => {
+      const escaped = code
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .trimEnd()
+      return `<pre class="my-6 rounded-lg bg-black/5 p-4 overflow-x-auto"><code${lang ? ` data-lang="${lang}"` : ''}>${escaped}</code></pre>`
+    })
+    // Inline code
+    .replace(/`([^`]+)`/gim, '<code class="bg-black/5 rounded px-1.5 py-0.5 text-sm">$1</code>')
     // Images (must come before links to avoid conflict)
     .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1" class="my-8 w-full grayscale hover:grayscale-0 transition-all duration-500" />')
     // Headers with spacing
@@ -116,6 +127,7 @@ function formatMarkdown(content: string): string {
       if (block.startsWith('<h') ||
           block.startsWith('<ul') ||
           block.startsWith('<img') ||
+          block.startsWith('<pre') ||
           block.startsWith('<div') ||
           block.startsWith('<p')) {
         return block
@@ -126,10 +138,12 @@ function formatMarkdown(content: string): string {
 
   // Clean up any remaining issues
   html = html
-    .replace(/<p class="my-4 leading-relaxed"><(h[123]|ul|img|div)/g, '<$1')
-    .replace(/<\/(h[123]|ul|img|div)><\/p>/g, '</$1>')
+    .replace(/<p class="my-4 leading-relaxed"><(h[123]|ul|img|pre|div)/g, '<$1')
+    .replace(/<\/(h[123]|ul|img|pre|div)><\/p>/g, '</$1>')
+    .replace(/<pre([\s\S]*?)<\/pre>/g, (match) => match.replace(/\n/g, '{{NEWLINE}}'))
     .replace(/\n/g, ' ')
     .replace(/\s+/g, ' ')
+    .replace(/\{\{NEWLINE\}\}/g, '\n')
     .trim()
 
   return html
