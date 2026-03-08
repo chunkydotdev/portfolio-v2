@@ -10,5 +10,5 @@
   "stack": ["Next.js", "NestJS", "Turborepo", "PostgreSQL", "shadcn", "Redis"],
   "url": "https://molted.email",
   "featured": true,
-  "order": 8
+  "order": 0
 }
