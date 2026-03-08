@@ -1,0 +1,14 @@
+{
+  "slug": "molted-email",
+  "title": "Molted Email",
+  "description": "Email infrastructure for AI agents.",
+  "longDescription": "Molted Email is an email API platform for AI agents — send, receive, and track emails with built-in policy guardrails, suppression management, multi-provider delivery, and outcome attribution.",
+  "image": {
+    "thumbnail": "/assets/molted-email.png",
+    "hero": "/assets/molted-email.png"
+  },
+  "stack": ["Next.js", "NestJS", "Turborepo", "PostgreSQL", "shadcn", "Redis"],
+  "url": "https://molted.email",
+  "featured": true,
+  "order": 8
+}
