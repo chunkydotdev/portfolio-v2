@@ -10,5 +10,5 @@
   "stack": ["React", "Next.js", "Tailwind CSS", "Firebase", "MongoDB"],
   "url": "https://felio.se",
   "featured": false,
-  "order": 5
+  "order": 6
 }

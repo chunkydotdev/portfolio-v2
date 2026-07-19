@@ -10,5 +10,5 @@
   "stack": ["React", "Next.js", "Tailwind CSS", "shadcn", "Firebase Auth", "MongoDB"],
   "url": "https://happypanda.io",
   "featured": false,
-  "order": 6
+  "order": 7
 }

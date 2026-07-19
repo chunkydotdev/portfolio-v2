@@ -1,0 +1,14 @@
+{
+  "slug": "hiremara",
+  "title": "Mara",
+  "description": "Hire Mara. She turns your free users into paying ones with lifecycle emails written in your voice.",
+  "longDescription": "Mara is an AI email marketing assistant for SaaS products. She reads your website and product, proposes a journey of welcome, activation, win-back, and churn-save emails, and drafts every campaign in your authentic voice — like a human wrote it. Mara segments users from product and payment events, runs A/B tests automatically, sorts and drafts replies, and reports performance weekly in plain language. Integrates with Clerk, Supabase, Stripe, Polar, and webhooks.",
+  "image": {
+    "thumbnail": "/assets/hiremara.png",
+    "hero": "/assets/hiremara.png"
+  },
+  "stack": ["React", "Next.js", "AI", "Stripe"],
+  "url": "https://hiremara.com",
+  "featured": true,
+  "order": 0
+}
