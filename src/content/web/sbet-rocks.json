@@ -10,5 +10,5 @@
   "stack": ["React", "Next.js", "shadcn", "Supabase"],
   "url": "https://sbet.rocks",
   "featured": true,
-  "order": 2
+  "order": 3
 }

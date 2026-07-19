@@ -1,0 +1,14 @@
+{
+  "slug": "topdf",
+  "title": "topdf.md",
+  "description": "Markdown in. Beautiful PDF out. Paste any Markdown and download a typeset, print-ready PDF — free, instant, and private.",
+  "longDescription": "topdf.md converts Markdown into typeset, print-ready PDFs directly in your browser — no signup, no uploads, no watermarks. It supports GitHub-flavored Markdown with tables, task lists, and syntax-highlighted code blocks, renders a live preview as you type, and offers multiple design themes including Resume, Report, Academic, and Invoice. Everything happens locally in the browser, so your documents never leave your machine. Perfect for turning ChatGPT and Claude output into polished documents.",
+  "image": {
+    "thumbnail": "/assets/topdf.png",
+    "hero": "/assets/topdf.png"
+  },
+  "stack": ["React", "Next.js", "Markdown"],
+  "url": "https://topdf.md",
+  "featured": false,
+  "order": 9
+}
