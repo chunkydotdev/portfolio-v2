@@ -1,0 +1,31 @@
+{
+  "slug": "nasta-dos",
+  "title": "Nästa dos",
+  "description": "Vaccinationer för hela familjen på ett ställe. Lägg in doserna ni fått, så säger appen till när nästa är dags.",
+  "longDescription": "Nästa dos håller koll på hela hushållets vaccinationer och säger till när nästa dos är dags.\n\nLägg in de doser ni redan fått. Appen räknar ut nästa dos utifrån Folkhälsomyndighetens rekommendationer och förklarar alltid varför: \"du sa att dos 2 togs den 3 maj, intervallet är tio år\".\n\n**Det här får du:**\n\n- **Hela familjen:** vuxna och barn i samma lista, barnvaccinationsprogrammet ifyllt med ett tryck.\n- **Påminnelser:** en notis när något är dags att boka, och en kalenderlänk du kan prenumerera på.\n- **Dela med din partner:** samma hushåll på två telefoner.\n- **Inget konto behövs** för att börja. Skapa konto när du vill spara eller dela.\n- **Svenska rekommendationer:** TBE, stelkramp och barnvaccinationsprogrammet, med källa till varje beräkning.",
+  "image": {
+    "thumbnail": "/assets/nasta-dos/valkommen.png",
+    "hero": "/assets/nasta-dos/hem.png",
+    "appIcon": "/assets/nasta-dos/icon.png",
+    "gallery": [
+      "/assets/nasta-dos/valkommen.png",
+      "/assets/nasta-dos/hem.png"
+    ]
+  },
+  "stack": [
+    "Swift",
+    "SwiftUI",
+    "Node.js",
+    "Postgres"
+  ],
+  "appStoreUrl": "",
+  "playStoreUrl": "",
+  "featured": false,
+  "order": 4,
+  "legal": {
+    "privacyPolicy": "<p>Nästa dos hjälper familjer att hålla koll på vaccinationer och påminner när nästa dos är dags. Den här texten förklarar vad vi sparar, varför, och vad du kan göra.</p><h2>Vem ansvarar</h2><p>Junghard Software AB (org.nr 559217-6753), Jans väg 5, Göteborg. Frågor: support@junghard.com.</p><h2>Vad vi sparar</h2><ul><li>Hushållets namn.</li><li>För varje person i hushållet: namn, födelsedatum och, om du fyller i det, kön och noteringar.</li><li>Vaccindoser du lägger in: vaccin, dosnummer, datum och vårdgivare.</li><li>Om du skapar konto: din Apple-inloggning (ett id från Apple) och den e-postadress Apple delar.</li><li>Tekniskt: en nyckel som kopplar appen på din telefon till dina uppgifter, en nyckel för kalenderlänken och, om du tillåter notiser, en adress för push-notiser.</li></ul><h2>Hälsouppgifter</h2><p>Vaccinationer räknas som hälsouppgifter. Vi sparar dem bara för att räkna ut nästa dos och påminna dig. Du godkänner det när du börjar använda appen, och du kan ta bort allt när du vill.</p><h2>Var uppgifterna finns</h2><p>På våra egna servrar inom EU (Nederländerna). All trafik mellan appen och servern är krypterad.</p><h2>Vem som ser dem</h2><p>Bara du och de du bjudit in till ditt hushåll. Vi säljer inte, delar inte och visar ingen reklam. Vi spårar dig inte.</p><p>Notiser skickas via Apple. En notis kan innehålla namn och vaccin, till exempel \"Elsa (TBE)\". Vill du inte det kan du stänga av notiser i telefonens inställningar.</p><h2>Hur länge</h2><p>Tills du tar bort dem. \"Radera allt\" i Inställningar tar bort ditt konto och dina uppgifter direkt. Lämnar sista personen ett hushåll tas hushållet bort.</p><h2>Dina rättigheter</h2><ul><li>Se och ändra: allt du lagt in finns i appen och kan ändras där.</li><li>Ta bort: \"Radera allt\" i Inställningar.</li><li>Få ett utdrag: mejla support@junghard.com.</li><li>Klaga: Integritetsskyddsmyndigheten, imy.se.</li></ul><h2>Barn</h2><p>Appen är gjord för vuxna som lägger in sin familjs vaccinationer. Vi riktar oss inte till barn och samlar inte in något från barn själva.</p><h2>Ändringar</h2><p>Ändrar vi den här texten uppdaterar vi datumet överst. Större ändringar berättar vi om i appen.</p><h2>För App Store</h2><p>Uppgifter kopplade till dig: hälsa (vaccinationer), kontaktuppgifter (e-post om du skapar konto), identifierare (användar-id). Inget används för spårning eller reklam.</p>",
+    "termsOfService": "<p>Nästa dos är gratis att använda. Genom att använda appen godkänner du de här villkoren.</p><h2>Inte medicinsk rådgivning</h2><p>Appen räknar ut nästa dos utifrån de datum du själv lagt in och Folkhälsomyndighetens rekommendationer. Den ersätter inte vård. Är du osäker, fråga din vårdcentral, BVC eller vaccinationsmottagning.</p><h2>Dina uppgifter</h2><p>Du ansvarar för att det du lägger in stämmer. Fel datum ger fel påminnelse. Vi tar inget ansvar för beslut som fattas utifrån appen.</p><h2>Ditt konto</h2><p>Du kan när som helst ta bort ditt konto och dina uppgifter i Inställningar. Vi kan stänga av konton som används för att skada tjänsten eller andra.</p><h2>Tillgänglighet</h2><p>Vi gör vårt bästa för att appen ska fungera, men kan inte lova att den alltid är tillgänglig eller felfri.</p><h2>Ansvar</h2><p>Appen tillhandahålls i befintligt skick. Junghard Software AB ansvarar inte för indirekta skador. Svensk lag gäller.</p><h2>Ändringar</h2><p>Vi kan ändra villkoren. Fortsätter du använda appen efter en ändring godkänner du den.</p><h2>Kontakt</h2><p>support@junghard.com</p>",
+    "effectiveDate": "2026-09-11",
+    "contactEmail": "support@junghard.com"
+  }
+}
