@@ -34,6 +34,7 @@ export interface MobileApp {
   legal: {
     privacyPolicy: string
     termsOfService: string
+    deleteAccount?: string
     effectiveDate: string
     contactEmail: string
   }
