@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `Radera konto - ${app.title}`,
-    description: `Så raderar du ditt konto i ${app.title}`,
+    title: app.legal.language === 'en' ? `Delete account - ${app.title}` : `Radera konto - ${app.title}`,
+    description: app.legal.language === 'en' ? `How to delete your account in ${app.title}` : `Så raderar du ditt konto i ${app.title}`,
   }
 }
 
@@ -46,7 +46,7 @@ export default async function DeleteAccountPage({ params }: PageProps) {
           Back to {app.title}
         </Link>
 
-        <h1 className="font-heading text-4xl md:text-5xl mb-4">Radera konto</h1>
+        <h1 className="font-heading text-4xl md:text-5xl mb-4">{app.legal.language === 'en' ? 'Delete account' : 'Radera konto'}</h1>
         <p className="text-black/40 mb-8 text-sm tracking-wider uppercase">
           {app.title} &mdash; Delete your account and data
         </p>

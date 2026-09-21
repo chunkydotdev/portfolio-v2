@@ -35,6 +35,9 @@ export interface MobileApp {
     privacyPolicy: string
     termsOfService: string
     deleteAccount?: string
+    /** The language the legal texts are written in; decides the delete page's own
+     *  heading. Defaults to Swedish (the first apps were), 'en' for an English app. */
+    language?: 'sv' | 'en'
     effectiveDate: string
     contactEmail: string
   }
